@@ -8,7 +8,7 @@ namespace Classes.ClassesEcole
     {
         protected int matricule;
         protected string nom;
-        private int anneeArrivee;
+        protected int anneeArrivee;
 
         public Contact(int matricule, string nom, int anneeArrivee)
         {
@@ -17,7 +17,7 @@ namespace Classes.ClassesEcole
             this.AnneeArrivee = anneeArrivee;
         }
 
-        protected int AnneeArrivee { get => anneeArrivee;
+        public int AnneeArrivee { get => anneeArrivee;
             set
             {
                 if (value > 2023)
@@ -27,5 +27,17 @@ namespace Classes.ClassesEcole
                 else { this.anneeArrivee = value; }
             } 
         }
+
+
+        public override string ToString()
+        {
+            string message = $@"
+{this.GetType().Name} :
+    Matricule : {this.matricule}
+    Nom : {this.nom}
+    Année : {this.anneeArrivee}";
+            return message;
+        }
+
     }
 }
